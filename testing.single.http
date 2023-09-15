@@ -1,0 +1,17 @@
+###
+
+POST http://localhost:8080/Patient HTTP/1.1
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Patient",
+  "identifier": [ { "system": "urn:oid:1.2.36.146.595.217.0.1", "value": "12345" } ],
+  "name": [ {
+      "family": "Chalmers",
+      "given": [ "Peter", "James" ]
+  } ],
+  "gender": "male",
+  "birthDate": "1974-12-25"
+}
+
+###
