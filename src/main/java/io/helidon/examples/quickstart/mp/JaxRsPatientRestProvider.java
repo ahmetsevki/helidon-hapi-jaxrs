@@ -74,7 +74,7 @@ public class JaxRsPatientRestProvider extends AbstractJaxRsResourceProvider<Pati
 	@Create
 	public MethodOutcome create(@ResourceParam final Patient patient, @ConditionalUrlParam String theConditional) {		
 		// create the patient ...
-		ourLog.debug("Create is called!");
+		ourLog.error("Create is called!");
 		return new MethodOutcome(new IdType(1L)).setCreated(true);
 	}
 
