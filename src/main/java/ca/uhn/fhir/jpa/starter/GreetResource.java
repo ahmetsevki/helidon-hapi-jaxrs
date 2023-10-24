@@ -1,5 +1,5 @@
 
-package io.helidon.examples.quickstart.mp;
+package ca.uhn.fhir.jpa.starter;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;

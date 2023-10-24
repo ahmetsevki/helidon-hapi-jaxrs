@@ -1,14 +1,14 @@
 
-package io.helidon.examples.quickstart.mp;
-
-import java.util.Collections;
+package ca.uhn.fhir.jpa.starter;
 
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
+import org.hl7.fhir.r4.model.Patient;
+
+import ca.uhn.fhir.jaxrs.server.AbstractJaxRsResourceProvider;
 import jakarta.ws.rs.PathParam;
 
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -25,8 +25,8 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
  *
  * The message is returned as a JSON object.
  */
-@Path("/simple-greet")
-public class SimpleGreetResource {
+// @Path("/test-resource")
+public class TestResource extends AbstractJaxRsResourceProvider<Patient> {
 
     private static final String PERSONALIZED_GETS_COUNTER_NAME = "personalizedGets";
     private static final String PERSONALIZED_GETS_COUNTER_DESCRIPTION = "Counts personalized GET operations";
@@ -34,9 +34,16 @@ public class SimpleGreetResource {
     private static final String GETS_TIMER_DESCRIPTION = "Tracks all GET operations";
     private final String message;
 
+    @Override
+	public Class<Patient> getResourceType() {
+		return Patient.class;
+	}
+
     @Inject
-    public SimpleGreetResource(@ConfigProperty(name = "app.greeting") String message) {
+    public TestResource(@ConfigProperty(name = "app.greeting") String message) {
+        super(JaxRsPatientRestProvider.class);
         this.message = message;
+        
     }
 
     /**

@@ -1,5 +1,5 @@
 
-package io.helidon.examples.quickstart.mp;
+package ca.uhn.fhir.jpa.starter;
 
 import org.eclipse.microprofile.metrics.Counter;
 import org.eclipse.microprofile.metrics.MetricRegistry;
@@ -11,8 +11,6 @@ import jakarta.ws.rs.core.MediaType;
 
 import io.helidon.microprofile.tests.junit5.HelidonTest;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
