@@ -47,7 +47,7 @@
         <class>ca.uhn.fhir.jpa.model.entity.ResourceHistoryTag</class>
         <properties>
 <!--            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>-->
-            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="jakarta.persistence.schema-generation.create-source" value="metadata" />
             <property name="jakarta.persistence.schema-generation.scripts.action" value="create" />
             <property name="jakarta.persistence.schema-generation.scripts.create-target" value="create.sql" />
