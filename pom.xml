@@ -17,6 +17,7 @@
         <skipTests>true</skipTests>
         <hapi_version>6.9.9-SNAPSHOT</hapi_version>
         <helidon_version>4.0.0</helidon_version>
+        <version.lib.ojdbc8>21.4.0.0</version.lib.ojdbc8>
     </properties>
 
     <dependencies>
@@ -92,10 +93,6 @@
             <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.helidon.integrations.cdi</groupId>
             <artifactId>helidon-integrations-cdi-jta-weld</artifactId>
             <scope>runtime</scope>
@@ -142,6 +139,34 @@
             <artifactId>hamcrest-all</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- DATABASES -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ucp</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.integrations.db</groupId>
+            <artifactId>ojdbc</artifactId>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.oracle.database.xml</groupId>
+                    <artifactId>xmlparserv2</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- The one coming with ucp (above) was giving exception with logback-->
+        <dependency>
+            <groupId>com.oracle.database.xml</groupId>
+            <artifactId>xmlparserv2_sans_jaxp_services</artifactId>
+            <version>${version.lib.ojdbc8}</version>
+        </dependency>
+        <!-- END DATABASES -->
         <!-- HAPI Dependencies -->
         <!-- For PlainServer implementation test /Patient2-->
 <!--        <dependency>-->
@@ -180,17 +205,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency>
-
-        <!-- This example uses H2 embedded database. If you are using another database such as Mysql
-        or Oracle, you may omit the following dependencies and replace them with an appropriate
-        database client
-            dependency for your database platform. -->
-<!--        <dependency>-->
-<!--            <groupId>com.h2database</groupId>-->
-<!--            <artifactId>h2</artifactId>-->
-<!--            <version>2.2.220</version>-->
-<!--        </dependency>-->
-        <!-- end hapi dependencies-->
     </dependencies>
 
     <build>
