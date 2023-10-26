@@ -50,7 +50,7 @@
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="jakarta.persistence.schema-generation.create-source" value="metadata" />
             <property name="jakarta.persistence.schema-generation.scripts.action" value="create" />
-            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="create.sql" />
+            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="generated-create.sql" />
         </properties>
     </persistence-unit>
 </persistence>
