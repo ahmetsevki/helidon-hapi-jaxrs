@@ -5,6 +5,7 @@ import ca.uhn.fhir.jpa.api.config.JpaStorageSettings.ClientIdStrategyEnum;
 import ca.uhn.fhir.jpa.model.entity.NormalizedQuantitySearchLevel;
 import ca.uhn.fhir.rest.api.EncodingEnum;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import org.hl7.fhir.r4.model.Bundle;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Objects;
 import java.util.Set;
 
 
+@ApplicationScoped
 public class AppProperties {
 
     private Boolean cr_enabled = false;

@@ -22,10 +22,29 @@
              version="3.0">
 
     <persistence-unit name="HAPI_PU" transaction-type="JTA">
-        <jta-data-source>HAPI_PU</jta-data-source>
+        <jta-data-source>my_data_source</jta-data-source>
+        <!-- How can we do this programmatically?? -->
         <class>ca.uhn.fhir.jpa.model.entity.ForcedId</class>
         <class>ca.uhn.fhir.jpa.model.entity.ResourceTable</class>
         <class>ca.uhn.fhir.jpa.model.entity.ResourceHistoryTable</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedComboStringUnique</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedComboTokenNonUnique</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamCoords</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamDate</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamNumber</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamQuantity</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamQuantityNormalized</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamString</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamToken</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceIndexedSearchParamUri</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceLink</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceModifiedEntity</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceSearchUrlEntity</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceTag</class>
+        <class>ca.uhn.fhir.jpa.model.entity.TagDefinition</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceHistoryProvenanceEntity</class>
+        <class>ca.uhn.fhir.jpa.model.entity.SearchParamPresentEntity</class>
+        <class>ca.uhn.fhir.jpa.model.entity.ResourceHistoryTag</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>

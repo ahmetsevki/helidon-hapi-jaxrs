@@ -15,14 +15,16 @@ import java.util.stream.Collectors;
 /**
  * This is the primary configuration file for the example server
  */
+@ApplicationScoped
 public class FhirServerConfigCommon {
 
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(FhirServerConfigCommon.class);
 
 
-
   private final AppProperties appProperties;
 
+
+  @Inject
   public FhirServerConfigCommon(AppProperties appProperties) {
     this.appProperties = appProperties;
     ourLog.info("Server configured to " + (appProperties.getAllow_contains_searches() ? "allow" : "deny") + " contains searches");
@@ -65,6 +67,8 @@ public class FhirServerConfigCommon {
   /**
    * Configure FHIR properties around the the JPA server via this bean
    */
+  @Produces
+  @ApplicationScoped
   public JpaStorageSettings jpaStorageSettings() {
     JpaStorageSettings jpaStorageSettings = new JpaStorageSettings();
 
@@ -148,6 +152,8 @@ public class FhirServerConfigCommon {
   }
 
 
+  @Produces
+  @ApplicationScoped
   public PartitionSettings partitionSettings() {
     PartitionSettings retVal = new PartitionSettings();
 

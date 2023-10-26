@@ -34,7 +34,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 /**
- * A demo JaxRs Patient Rest Provider
+ * A demo JaxRs Patient Rest Provider, this is a Plain Server version but in JaxRs
  */
 // START SNIPPET: jax-rs-provider-construction
 @Path("/Patient2")
