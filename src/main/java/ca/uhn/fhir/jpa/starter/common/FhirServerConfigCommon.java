@@ -72,6 +72,7 @@ public class FhirServerConfigCommon {
   public JpaStorageSettings jpaStorageSettings() {
     JpaStorageSettings jpaStorageSettings = new JpaStorageSettings();
 
+    jpaStorageSettings.setInlineResourceTextBelowSize(32 * 1000 * 1000 -1);// 32MB
     jpaStorageSettings.setIndexMissingFields(appProperties.getEnable_index_missing_fields() ? StorageSettings.IndexEnabledEnum.ENABLED : StorageSettings.IndexEnabledEnum.DISABLED);
     jpaStorageSettings.setAutoCreatePlaceholderReferenceTargets(appProperties.getAuto_create_placeholder_reference_targets());
     jpaStorageSettings.setAutoVersionReferenceAtPaths(appProperties.getAuto_version_reference_at_paths());
