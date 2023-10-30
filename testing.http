@@ -26,16 +26,16 @@ GET http://localhost:8080/Patient/1  HTTP/1.1
 
 ###
 
-PUT http://localhost:8080/Patient/111 HTTP/1.1
+PUT http://localhost:8080/Patient/1 HTTP/1.1
 Content-Type: application/fhir+json
 
 {
   "resourceType": "Patient",
-  "id":"Patient/111",
+  "id": "1",
   "identifier": [ { "system": "urn:oid:1.2.36.146.595.217.0.1", "value": "12345" } ],
   "name": [ {
-      "family": "Chalmers",
-      "given": [ "Peter", "James" ]
+    "family": "Nalcacioglu",
+    "given": [ "Ahmet", "Ismail" ]
   } ],
   "gender": "male",
   "birthDate": "1974-12-25"
