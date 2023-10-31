@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 /**
  * This is the primary configuration file for the example server
  */
-@ApplicationScoped
 public class FhirServerConfigCommon {
 
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(FhirServerConfigCommon.class);
