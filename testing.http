@@ -20,7 +20,7 @@ Content-Type: application/fhir+json
 
 ###
 
-GET http://localhost:8080/Patient/P101  HTTP/1.1
+GET http://localhost:8080/Patient/1  HTTP/1.1
 
 ###
 
@@ -28,12 +28,12 @@ GET http://localhost:8080/metadata  HTTP/1.1
 
 ###
 
-PUT http://localhost:8080/Patient/22 HTTP/1.1
+PUT http://localhost:8080/Patient/A22 HTTP/1.1
 Content-Type: application/fhir+json
 
 {
   "resourceType": "Patient",
-  "id": "22",
+  "id": "A22",
   "identifier": [ { "system": "urn:oid:1.2.36.146.595.217.0.1", "value": "12345" } ],
   "name": [ {
     "family": "Herbert",
@@ -43,6 +43,14 @@ Content-Type: application/fhir+json
   "birthDate": "1974-12-25"
 }
 
+### Practitioner - empty
+
+POST http://localhost:8080/Practitioner HTTP/1.1
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Practitioner"
+}
 ###
 
 POST http://localhost:8080/Practitioner/$validate HTTP/1.1
